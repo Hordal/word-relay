@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>끝말잇기 - 김연준</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/word-relay.css">
+    <style>
+      body {
+        background-color: #34495e; /* 어두운 남색 계열 배경 */
+        color: #ecf0f1; /* 밝은 텍스트 색상 */
+        font-family: 'DotGothic16', sans-serif; /* 픽셀 스타일 폰트 */
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: 50px;
+        min-height: 100vh;
+        margin: 0;
+      }
+      .main-wrapper {
+        display: flex;
+        gap: 20px;
+        width: 800px;
+      }
+      .game-container, #history-container {
+        background-color: #2c3e50; /* 게임 컨테이너 배경 */
+        border: 2px solid #95a5a6;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      }
+      .game-container {
+        flex-grow: 1;
+      }
+      #history-container {
+        width: 250px;
+        flex-shrink: 0;
+      }
+      #turn-display {
+        font-size: 24px;
+        margin-bottom: 15px;
+        text-align: center;
+      }
+      #order {
+        color: #f1c40f; /* 노란색으로 순서 강조 */
+        font-weight: bold;
+      }
+      #word-display {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 20px;
+        padding: 10px;
+        background-color: #34495e;
+        border-radius: 4px;
+      }
+      #word {
+        color: #3498db; /* 파란색으로 제시어 강조 */
+        font-size: 32px;
+      }
+      .input-area {
+        display: flex;
+        gap: 10px;
+      }
+      .input-area input[type="text"] {
+        flex-grow: 1;
+        padding: 10px;
+        font-family: 'DotGothic16', sans-serif;
+        font-size: 18px;
+        background-color: #ecf0f1;
+        border: 2px solid #7f8c8d;
+        border-radius: 4px;
+        color: #2c3e50;
+      }
+      .input-area button {
+        padding: 10px 20px;
+        font-family: 'DotGothic16', sans-serif;
+        font-size: 18px;
+        background-color: #3498db;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+      .input-area button:hover {
+        background-color: #2980b9;
+      }
+      #history-container h3 {
+        margin-top: 0;
+        text-align: center;
+        border-bottom: 2px solid #95a5a6;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+      }
+      #history-log {
+        height: 300px;
+        overflow-y: auto;
+        font-size: 16px;
+        line-height: 1.6;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main-wrapper">
+      <div class="game-container">
+        <div id="turn-display"><span id="order">1</span>님의 차례</div>
+        <div id="word-display">제시어: <span id="word"></span></div>
+        <div class="input-area">
+          <input type="text" placeholder="단어를 입력하세요">
+          <button>입력</button>
+        </div>
+        <div id="player-list"></div>
+      </div>
+      <div id="history-container">
+        <h3>최근 단어</h3>
+        <div id="history-log"></div>
+      </div>
+    </div>
+    <script src="js/ui.js"></script>
+    <script src="js/word-relay.js"></script>
+  </body>
+</html>

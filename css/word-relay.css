@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+/* --- 기본 & 레이아웃 --- */
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.main-wrapper {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+}
+
+.game-container {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  border: 1px solid #e0e0e0;
+}
+
+/* --- 게임 상단 UI --- */
+#turn-display {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+#word-display {
+  font-size: 1.2em;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+#word {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: #28a745;
+  letter-spacing: 2px;
+  margin-left: 10px;
+}
+
+/* --- 입력 영역 --- */
+.input-area {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+input[type="text"] {
+  flex-grow: 1;
+  padding: 15px;
+  font-size: 1.1em;
+  border: 2px solid #ced4da;
+  border-radius: 8px 0 0 8px;
+  background-color: #f8f9fa;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+input::placeholder {
+  color: #999;
+}
+
+button {
+  padding: 15px 25px;
+  font-size: 1.1em;
+  font-weight: 700;
+  border: none;
+  border-radius: 0 8px 8px 0;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+/* --- 참가자 목록 --- */
+#player-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.player-item {
+  padding: 8px 15px;
+  border-radius: 20px;
+  background-color: #e9ecef;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.player-item.active-player {
+  color: #fff;
+  background-color: #28a745;
+  font-weight: 700;
+  animation: glow 1.5s infinite alternate;
+}
+
+.player-item.eliminated-player {
+  background-color: #f8f9fa;
+  color: #adb5bd;
+  text-decoration: line-through;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px #28a745, 0 0 10px #28a745;
+  }
+  to {
+    box-shadow: 0 0 20px #28a745, 0 0 30px #28a745;
+  }
+}
+
+/* --- 최근 단어 기록 --- */
+#history-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  border: 1px solid #e0e0e0;
+}
+
+#history-container h3 {
+  margin-top: 0;
+  text-align: center;
+  color: #007bff;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+#history-log {
+  font-size: 1em;
+  color: #6c757d;
+  line-height: 1.8;
+  text-align: center;
+}
